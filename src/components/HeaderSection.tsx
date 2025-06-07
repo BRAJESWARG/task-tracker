@@ -1,8 +1,14 @@
 import React, { useEffect, useState, ChangeEvent } from "react";
-import "./TaskTimerApp.css";
 
-const HeaderSection: React.FC = () => {
+interface HeaderSectionProps {
+    onSelectStopwatch: () => void;
+    onSelectCountdown: () => void;
+}
 
+const HeaderSection: React.FC<HeaderSectionProps> = ({
+    onSelectStopwatch,
+    onSelectCountdown,
+}) => {
     const [currentTime, setCurrentTime] = useState(new Date());
     const [taskName, setTaskName] = useState("Task checkbox");
     const [taskHistory, setTaskHistory] = useState<string[]>([]);
@@ -72,6 +78,15 @@ const HeaderSection: React.FC = () => {
                     </label>
                 </div>
                 <div className="time-value">{getTimeString(currentTime)}</div>
+            </div>
+
+            <div className="mode-buttons">
+                <button onClick={onSelectStopwatch} className="mode-btn">
+                    Stopwatch
+                </button>
+                <button onClick={onSelectCountdown} className="mode-btn">
+                    Countdown
+                </button>
             </div>
 
             {taskHistory.length > 0 && (

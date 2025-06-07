@@ -1,0 +1,100 @@
+.header-section {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(to right, #e0f7fa, #fff);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.top-row {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.date,
+.time {
+  flex: 1;
+  text-align: center;
+}
+
+.task {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.task input[type="text"] {
+  font-size: 1rem;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 200px;
+}
+
+.edit-button {
+  background: #2196f3;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.edit-button:hover {
+  background: #1976d2;
+}
+
+.mode-buttons button {
+  background: #e0e0e0;
+  border: none;
+  padding: 8px 16px;
+  margin: 0 6px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.mode-buttons button.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.mode-buttons button:hover {
+  background-color: #c8e6c9;
+}
+
+.task-history {
+  background: #f1f8e9;
+  border-radius: 8px;
+  padding: 12px;
+  width: 100%;
+}
+
+.task-history h3 {
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+}
+
+.task-history ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.task-history li {
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}

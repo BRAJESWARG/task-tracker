@@ -63,7 +63,7 @@ const Stopwatch: React.FC = () => {
     return (
         <>
             <div className="timer-box">
-                Timer
+                Stopwatch
                 <div>{formatTime(milliseconds)}</div>
             </div>
 
