@@ -1,8 +1,11 @@
 import React, { useEffect, useState, ChangeEvent, useRef } from "react";
+import "./TaskTimerApp.css";
 
 const TaskTimerApp: React.FC = () => {
 
     const [taskName, setTaskName] = useState("Task checkbox");
+    const [taskHistory, setTaskHistory] = useState<string[]>([]);
+    const [isEditingTask, setIsEditingTask] = useState(false);
     const [currentTime, setCurrentTime] = useState(new Date());
     const [milliseconds, setMilliseconds] = useState(0);
     const [isRunning, setIsRunning] = useState(false);
@@ -56,6 +59,11 @@ const TaskTimerApp: React.FC = () => {
         setTaskName(e.target.value);
     };
 
+    const saveTaskName = () => {
+        setTaskHistory(prev => [...prev, taskName]);
+        setIsEditingTask(false);
+    };
+
     const handleStart = () => {
         setIsRunning(true);
         setHasStopped(false);
@@ -80,54 +88,84 @@ const TaskTimerApp: React.FC = () => {
     const toggleTimeFormat = () => setIs24HourFormat(prev => !prev);
 
     return (
-        <div className="w-[16rem] min-h-[16rem] border-2 border-red-400 p-2 font-sans">
-            <div className="flex justify-between items-center mb-2">
-                <div className="text-xs">
+        <div className="task-timer-container" style={{ aspectRatio: "16 / 9", maxWidth: "100vw", margin: "auto" }}>
+            <div className="header">
+                <div className="date-info">
                     <div>Date: {getDate(currentTime)}</div>
                     <div>Day: {getDayName(currentTime)}</div>
                 </div>
-                <input
-                    className="text-center border border-gray-400 text-sm px-1 py-0.5"
-                    type="text"
-                    value={taskName}
-                    onChange={handleTaskNameChange}
-                />
-                <div className="text-xs text-right">
-                    <div className="flex items-center gap-1">
+
+                <div className="task-section">
+                    {isEditingTask ? (
+                        <div className="task-edit">
+                            <input
+                                type="text"
+                                value={taskName}
+                                onChange={handleTaskNameChange}
+                            />
+                            <button onClick={saveTaskName}>Save</button>
+                        </div>
+                    ) : (
+                        <div className="task-display">
+                            <span>{taskName}</span>
+                            <button onClick={() => setIsEditingTask(true)}>Edit</button>
+                        </div>
+                    )}
+                </div>
+
+                <div className="time-info">
+                    <div className="time-label">
                         <span>Time</span>
-                        <button
-                            onClick={toggleTimeFormat}
-                            className="text-[10px] border border-gray-300 px-1"
-                        >
+                        <button onClick={toggleTimeFormat} className="toggle-button">
                             {is24HourFormat ? "12h" : "24h"}
                         </button>
                     </div>
-                    <div className="text-green-600">{getTimeString(currentTime)}</div>
+                    <div className="time-value">{getTimeString(currentTime)}</div>
                 </div>
             </div>
-            <div className="border border-blue-400 text-center text-xl py-4 mb-2">
+
+            <div className="timer-box">
                 Timer
                 <div>{formatTime(milliseconds)}</div>
             </div>
-            <div className="flex justify-between text-xs mb-2">
+
+            <div className="button-row">
                 <button
-                    className="border px-2 py-1"
                     onClick={isRunning ? handleStop : hasStopped ? handleStart : handleStart}
+                    className={isRunning ? "button-stop" : hasStopped ? "button-resume" : "button-start"}
                 >
                     {isRunning ? "Stop" : hasStopped ? "Resume" : "Start"}
                 </button>
                 {hasStopped ? (
-                    <button className="border px-2 py-1" onClick={handleReset}>Reset</button>
+                    <button onClick={handleReset} className="button-reset">Reset</button>
                 ) : (
-                    <button className="border px-2 py-1" onClick={handleLap}>Lap</button>
+                    <button
+                        onClick={handleLap}
+                        disabled={!isRunning}
+                        className="button-lap"
+                    >
+                        Lap
+                    </button>
                 )}
             </div>
+
             {laps.length > 0 && (
-                <div className="text-xs mt-2">
+                <div className="laps">
                     <strong>Laps:</strong>
-                    <ul className="list-decimal ml-4">
+                    <ul>
                         {laps.map((lap, index) => (
                             <li key={index}>{lap}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+
+            {taskHistory.length > 0 && (
+                <div className="history">
+                    <strong>Task History:</strong>
+                    <ul>
+                        {taskHistory.map((task, index) => (
+                            <li key={index}>{task}</li>
                         ))}
                     </ul>
                 </div>
