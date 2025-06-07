@@ -116,16 +116,17 @@ const TaskTimerApp: React.FC = () => {
                 <div className="time-info">
                     <div className="time-label">
                         <span>Time</span>
-                        <button onClick={toggleTimeFormat} className="toggle-button">
-                            {is24HourFormat ? "12h" : "24h"}
-                        </button>
+                        <label className="switch">
+                            <input type="checkbox" checked={is24HourFormat} onChange={toggleTimeFormat} />
+                            <span className="slider round"></span>
+                        </label>
                     </div>
                     <div className="time-value">{getTimeString(currentTime)}</div>
                 </div>
             </div>
 
             <div className="timer-box">
-                Timer
+                Stopwatch
                 <div>{formatTime(milliseconds)}</div>
             </div>
 

@@ -126,7 +126,7 @@ const TaskTimerApp: React.FC = () => {
             </div>
 
             <div className="timer-box">
-                Timer
+                Stopwatch
                 <div>{formatTime(milliseconds)}</div>
             </div>
 
