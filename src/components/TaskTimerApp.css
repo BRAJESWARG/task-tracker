@@ -1,0 +1,42 @@
+.task-timer-container {
+  width: 16rem;
+  height: 9rem;
+  border: 2px solid red;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.task-timer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.date-day,
+.time-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.task-input {
+  text-align: center;
+  font-size: 0.85rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid gray;
+  width: 7rem;
+}
+
+.timer-display {
+  border: 1px solid blue;
+  text-align: center;
+  font-size: 1.25rem;
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  background-color: #f9f9f9;
+}
