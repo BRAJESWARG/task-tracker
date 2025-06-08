@@ -28,7 +28,7 @@ const CountdownTimer: React.FC = () => {
         return () => {
             if (timer) clearInterval(timer);
         };
-    }, [running]);
+    }, [running, totalTime]);
 
     const handleStart = () => {
         const timeInMs = (hours * 3600 + minutes * 60 + seconds) * 1000;
