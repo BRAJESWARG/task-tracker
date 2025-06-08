@@ -46,7 +46,6 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({
     const toggleTimeFormat = () => setIs24HourFormat((prev) => !prev);
 
     return (
-        // <div className="header">
         <div className="header-section">
             <div className="row top-row">
                 <div className="date-info">

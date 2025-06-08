@@ -1,10 +1,11 @@
 .header-section {
-  width: 100%;
+  width: 95%;
   padding: 16px;
   background: linear-gradient(to right, #e0f7fa, #fff);
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 1rem;
 }
 
 .row {
@@ -59,6 +60,7 @@
 
 .mode-buttons button {
   background: #e0e0e0;
+  color: crimson;
   border: none;
   padding: 8px 16px;
   margin: 0 6px;
@@ -81,7 +83,7 @@
   background: #f1f8e9;
   border-radius: 8px;
   padding: 12px;
-  width: 100%;
+  width: 95%;
 }
 
 .task-history h3 {

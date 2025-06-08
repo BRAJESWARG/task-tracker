@@ -1,7 +1,8 @@
 .task-timer-container {
   width: 35rem;
-  min-height: fit-content;
+  height: fit-content;
   padding: 1rem;
+  margin-bottom: 1rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(to bottom right, #fff7d6, #ffe0dc, #ffddee);
   border-radius: 1rem;
@@ -256,7 +257,16 @@ input:checked+.slider:before {
   .task-timer-container {
     aspect-ratio: 9 / 16;
     width: 90%;
-    min-height: fit-content;
+    /* min-height: fit-content; */
+  }
+
+  .header-section {
+    width: 85%;
+    margin-bottom: 1rem;
+  }
+
+  .task-history {
+    width: 85%;
   }
 
   .time-info {

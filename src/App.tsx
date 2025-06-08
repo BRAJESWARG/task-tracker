@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import TaskTimerApp from './components/TaskTimerApp';
+import TaskTimerApp from './components/TaskTimerApp2';
 
 function App() {
   return (
